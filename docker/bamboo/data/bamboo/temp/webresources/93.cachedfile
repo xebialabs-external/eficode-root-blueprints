@@ -1,0 +1,13 @@
+;
+try {
+/* module-key = 'com.atlassian.auiplugin:internal-src-js-aui-forms', location = 'src/js/aui/forms.js' */
+("undefined"===typeof window?global:window).__373dfbf532dc7dad0a2fbd134ab1e791=function(){function c(a,b){var c=(0,d.default)(a);"undefined"===typeof b&&(b=!0);return c.each(function(){this.disabled=!b})}function e(){(0,d.default)(".icon-inline-help").click(function(){var a=(0,d.default)(this).siblings(".field-help");a.hasClass("hidden")?a.removeClass("hidden"):a.addClass("hidden")})}var b={};"use strict";Object.defineProperty(b,"__esModule",{value:!0});b.inlineHelp=b.enable=void 0;var a=__bd7207540b95ff683caa1d3c0bfcc3d7,
+d=a&&a.__esModule?a:{"default":a},a=(a=__9a668cbde1e182d8e721c23580356df2)&&a.__esModule?a:{"default":a};(0,a.default)("enable",c);(0,a.default)("inlineHelp",e);b.enable=c;b.inlineHelp=e;return b}.call(this);
+} catch (err) {
+    if (console && console.log && console.error) {
+        console.log("Error running batched script.");
+        console.error(err);
+    }
+}
+
+;

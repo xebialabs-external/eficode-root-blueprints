@@ -1,0 +1,13 @@
+;
+try {
+/* module-key = 'com.atlassian.auiplugin:internal-src-js-aui-firebug', location = 'src/js/aui/firebug.js' */
+("undefined"===typeof window?global:window).__469e4c263aa7b3b7681fe7afc590fcf6=function(){function e(){}function d(){var a=(0,g.default)(document.createElement("script"));a.attr("src","https://getfirebug.com/releases/lite/1.2/firebug-lite-compressed.js");(0,g.default)("head").append(a);window.firebug?d.init():setTimeout(d,0)}var b={};"use strict";Object.defineProperty(b,"__esModule",{value:!0});b.warnAboutFirebug=b.firebug=void 0;var a=__bd7207540b95ff683caa1d3c0bfcc3d7,g=a&&a.__esModule?a:{"default":a},
+c;if((a=__c88c0dc6258c37804917fb6a0e4092fa)&&a.__esModule)c=a;else{var f={};if(null!=a)for(c in a)Object.prototype.hasOwnProperty.call(a,c)&&(f[c]=a[c]);f.default=a;c=f}a=(a=__9a668cbde1e182d8e721c23580356df2)&&a.__esModule?a:{"default":a};b.firebug=d=c.fn(d,"firebug",{sinceVersion:"5.1.0"});b.warnAboutFirebug=e=c.fn(e,"warnAboutFirebug",{sinceVersion:"5.8.0"});(0,a.default)("firebug",d);(0,a.default)("warnAboutFirebug",e);b.firebug=d;b.warnAboutFirebug=e;return b}.call(this);
+} catch (err) {
+    if (console && console.log && console.error) {
+        console.log("Error running batched script.");
+        console.error(err);
+    }
+}
+
+;

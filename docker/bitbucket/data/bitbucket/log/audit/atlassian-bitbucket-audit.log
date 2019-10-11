@@ -1,0 +1,13 @@
+- | DirectoryCreatedEvent | - | 1570709103858 | Bitbucket Internal Directory | - | - | -
+- | GroupCreatedEvent | - | 1570709104043 | stash-users | - | - | -
+- | DisplayNameChangedEvent | - | 1570709104250 | DISPLAY_NAME | {"new":"Bitbucket","old":null} | - | -
+172.23.0.1 | BaseUrlChangedEvent | - | 1570709602571 | BASE_URL | {"new":"http://vincents-macbook-pro-7.local:7990","old":null} | @R2Q97Xx733x24x0 | 1wd6zia
+172.23.0.1 | LicenseChangedEvent | - | 1570709602717 | System | - | @R2Q97Xx733x24x0 | 1wd6zia
+172.23.0.1 | UserCreatedEvent | - | 1570709624745 | bitbucket | - | @R2Q97Xx733x28x0 | 1wd6zia
+172.23.0.1 | GroupMembershipsCreatedEvent | - | 1570709624874 | stash-users | {"entities":["bitbucket"],"membership":"GROUP_USER"} | @R2Q97Xx733x28x0 | 1wd6zia
+172.23.0.1 | GlobalPermissionGrantRequestedEvent | - | 1570709625019 | Global | {"permission":"SYS_ADMIN","user":"bitbucket"} | @R2Q97Xx733x28x0 | 1wd6zia
+172.23.0.1 | GlobalPermissionGrantedEvent | - | 1570709625034 | Global | {"permission":"SYS_ADMIN","user":"bitbucket"} | @R2Q97Xx733x28x0 | 1wd6zia
+172.23.0.1 | ApplicationSetupEvent | - | 1570709625043 | SERVER_IS_SETUP | {"new":true,"old":false} | @R2Q97Xx733x28x0 | 1wd6zia
+172.23.0.1 | ProjectPermissionGrantedEvent | bitbucket | 1570709656382 | IN | {"permission":"PROJECT_ADMIN","user":"bitbucket"} | @R2Q97Xx734x74x0 | 1wd6zia
+172.23.0.1 | BranchModelConfigurationCreatedEvent | bitbucket | 1570709656512 | IN | {"development":{"refId":null,"useDefault":true},"types":[{"id":"BUGFIX","displayName":"BUGFIX","enabled":true,"prefix":"bugfix/"},{"id":"FEATURE","displayName":"FEATURE","enabled":true,"prefix":"feature/"},{"id":"HOTFIX","displayName":"HOTFIX","enabled":true,"prefix":"hotfix/"},{"id":"RELEASE","displayName":"RELEASE","enabled":true,"prefix":"release/"}],"scope":{"type":"PROJECT","resourceId":1}} | @R2Q97Xx734x74x0 | 1wd6zia
+172.23.0.1 | ProjectCreatedEvent | bitbucket | 1570709656562 | IN | - | @R2Q97Xx734x74x0 | 1wd6zia

@@ -1,0 +1,13 @@
+;
+try {
+/* module-key = 'com.atlassian.auiplugin:internal-src-js-aui-internal-add-id', location = 'src/js/aui/internal/add-id.js' */
+("undefined"===typeof window?global:window).__720511231eacfd9a564b2acaf400d3c5=function(){function c(a){return a&&a.__esModule?a:{"default":a}}function d(a,b){var c=(0,e.default)(a),d=b||!1;c.each(function(){var a=(0,e.default)(this);a.attr("id")||a.attr("id",(0,f.default)(d))})}var b={};"use strict";Object.defineProperty(b,"__esModule",{value:!0});var e=c(__bd7207540b95ff683caa1d3c0bfcc3d7),g=c(__9a668cbde1e182d8e721c23580356df2),f=c(__e1499ff20858265795f80d7a4fc9c0f4);(0,g.default)("_addID",d);
+b.default=d;return b=b["default"]}.call(this);
+} catch (err) {
+    if (console && console.log && console.error) {
+        console.log("Error running batched script.");
+        console.error(err);
+    }
+}
+
+;

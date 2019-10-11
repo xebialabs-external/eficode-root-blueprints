@@ -1,0 +1,58 @@
+---
+apiVersion: xl-release/v1
+kind: Users
+spec:
+- username: alice
+  name: Alice
+  password: !value test_user_password
+  enabled: true
+- username: bob
+  name: Bob
+  password: !value test_user_password
+  enabled: true
+- username: niko
+  name: Niko
+  password: !value test_user_password
+  enabled: true
+- username: henrik
+  name: Henrik
+  password: !value test_user_password
+  enabled: true
+---
+apiVersion: xl-release/v1
+kind: Roles
+spec:
+- name: Leaders
+  principals:
+  - alice
+  - bob
+- name: Developers
+  principals:
+  - niko
+  - henrik
+
+---
+apiVersion: xl-deploy/v1
+kind: Users
+spec:
+- username: bob
+  password: !value test_user_password
+- username: alice
+  password: !value test_user_password
+- username: niko
+  password: !value test_user_password
+- username: henrik
+  password: !value test_user_password
+
+---
+apiVersion: xl-deploy/v1
+kind: Roles
+spec:
+- name: Leaders
+  principals:
+  - alice
+  - bob
+- name: Developers
+  principals:
+  - niko
+  - henrik

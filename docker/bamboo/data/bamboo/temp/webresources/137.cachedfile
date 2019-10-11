@@ -1,0 +1,12 @@
+;
+try {
+/* module-key = 'com.atlassian.applinks.applinks-plugin:lodash-amd', location = 'applinks/internal/lib/lodash-amd-global.js' */
+define("applinks/lib/lodash",function(){if(!window._){throw"lodash not found"}return window._});
+} catch (err) {
+    if (console && console.log && console.error) {
+        console.log("Error running batched script.");
+        console.error(err);
+    }
+}
+
+;

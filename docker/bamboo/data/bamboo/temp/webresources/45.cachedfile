@@ -1,0 +1,2 @@
+/* module-key = 'com.atlassian.applinks.applinks-plugin:compatibility-css', location = 'css/compatibility/bamboo.css' */
+div .local-app-image{background-image:url(/s/en/61008/1/5.4.15/_/download/resources/com.atlassian.applinks.applinks-plugin:compatibility-css/../../download/resources/com.atlassian.applinks.applinks-plugin:applinks-images/images/config/logos/100bamboo.png)}.applinks-entity-header>ul{top:-10px}

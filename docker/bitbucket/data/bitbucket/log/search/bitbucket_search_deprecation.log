@@ -1,0 +1,17 @@
+[2019-10-10T12:14:07,525][WARN ][o.e.d.i.m.MapperService  ] [bitbucket_bundled]Setting index.mapper.dynamic is deprecated since indices may not have more than one type anymore.
+[2019-10-10T12:14:07,681][WARN ][o.e.d.i.m.AllFieldMapper ] [bitbucket_bundled][_all] is deprecated in 6.0+ and will be removed in 7.0. As a replacement, you can use [copy_to] on mapping fields to create your own catch all field.
+[2019-10-10T12:14:07,842][WARN ][o.e.d.i.m.MapperService  ] [bitbucket_bundled]Setting index.mapper.dynamic is deprecated since indices may not have more than one type anymore.
+[2019-10-10T12:14:07,845][WARN ][o.e.d.i.m.AllFieldMapper ] [bitbucket_bundled][_all] is deprecated in 6.0+ and will be removed in 7.0. As a replacement, you can use [copy_to] on mapping fields to create your own catch all field.
+[2019-10-10T12:14:08,169][WARN ][o.e.d.i.m.MapperService  ] [bitbucket_bundled]Setting index.mapper.dynamic is deprecated since indices may not have more than one type anymore.
+[2019-10-10T12:14:08,262][WARN ][o.e.d.i.m.AllFieldMapper ] [bitbucket_bundled][_all] is deprecated in 6.0+ and will be removed in 7.0. As a replacement, you can use [copy_to] on mapping fields to create your own catch all field.
+[2019-10-10T12:14:08,305][WARN ][o.e.d.i.m.MapperService  ] [bitbucket_bundled]Setting index.mapper.dynamic is deprecated since indices may not have more than one type anymore.
+[2019-10-10T12:14:08,308][WARN ][o.e.d.i.m.AllFieldMapper ] [bitbucket_bundled][_all] is deprecated in 6.0+ and will be removed in 7.0. As a replacement, you can use [copy_to] on mapping fields to create your own catch all field.
+[2019-10-10T12:14:08,390][WARN ][o.e.d.i.m.MapperService  ] [bitbucket_bundled]Setting index.mapper.dynamic is deprecated since indices may not have more than one type anymore.
+[2019-10-10T12:14:08,392][WARN ][o.e.d.i.m.AllFieldMapper ] [bitbucket_bundled][_all] is deprecated in 6.0+ and will be removed in 7.0. As a replacement, you can use [copy_to] on mapping fields to create your own catch all field.
+[2019-10-10T12:14:08,653][WARN ][o.e.d.i.m.MapperService  ] [bitbucket_bundled]Setting index.mapper.dynamic is deprecated since indices may not have more than one type anymore.
+[2019-10-10T12:14:08,655][WARN ][o.e.d.i.m.AllFieldMapper ] [bitbucket_bundled][_all] is deprecated in 6.0+ and will be removed in 7.0. As a replacement, you can use [copy_to] on mapping fields to create your own catch all field.
+[2019-10-10T12:14:08,817][WARN ][o.e.d.i.m.MapperService  ] [bitbucket_bundled]Setting index.mapper.dynamic is deprecated since indices may not have more than one type anymore.
+[2019-10-10T12:14:08,820][WARN ][o.e.d.i.m.AllFieldMapper ] [bitbucket_bundled][_all] is deprecated in 6.0+ and will be removed in 7.0. As a replacement, you can use [copy_to] on mapping fields to create your own catch all field.
+[2019-10-10T12:14:09,010][WARN ][o.e.d.i.m.MapperService  ] [bitbucket_bundled]Setting index.mapper.dynamic is deprecated since indices may not have more than one type anymore.
+[2019-10-10T12:14:09,013][WARN ][o.e.d.i.m.AllFieldMapper ] [bitbucket_bundled][_all] is deprecated in 6.0+ and will be removed in 7.0. As a replacement, you can use [copy_to] on mapping fields to create your own catch all field.
+[2019-10-10T12:14:09,394][WARN ][o.e.d.c.m.MetaDataCreateIndexService] [bitbucket_bundled]the default number of shards will change from [5] to [1] in 7.0.0; if you wish to continue using the default of [5] shards, you must manage this on the create index request or with an index template

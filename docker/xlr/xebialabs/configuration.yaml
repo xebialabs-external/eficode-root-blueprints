@@ -1,0 +1,41 @@
+---
+apiVersion: xl-release/v1
+kind: Templates
+spec:
+- directory: Ecommerce
+  children:
+  - name: Ecommerce
+    type: jenkins.Server
+    url: !value "jenkins_Server_Ecommerce_url"
+    username: !value "jenkins_Server_Ecommerce_username"
+    password: !value "jenkins_Server_Ecommerce_password"
+  - name: Ecommerce
+    type: jira.Server
+    url: !value "jira_url"
+    username: !value "jira_username"
+    password: !value "jira_password"
+  - name: Ecommerce
+    type: sonar.Server
+    url: !value "sonar_Server_Ecommerce_url"
+    username: !value "sonar_Server_Ecommerce_username"
+    password: !value "sonar_Server_Ecommerce_password"
+  - name: Ecommerce
+    type: xldeploy.XLDeployServer
+    url: !value "xldeploy_Server_Ecommerce_url"
+    username: !value "xldeploy_Server_Ecommerce_username"
+    password: !value "xldeploy_XLDeployServer_Ecommerce_password"
+  - name: Ecommerce
+    type: artifactory.Server
+    url: !value "artifactory_Server_Ecommerce_url"
+    username: !value "artifactory_Server_Ecommerce_username"
+    password: !value "artifactory_Server_Ecommerce_password"
+  - name: Ecommerce
+    type: bamboo.Server
+    url: !value "bamboo_Server_Ecommerce_url"
+    username: !value "bamboo_Server_Ecommerce_username"
+    password: !value "bamboo_Server_Ecommerce_password"
+  - name: Ecommerce
+    type: stash.Server
+    url: !value "bitbucket_Server_Ecommerce_url"
+    username: !value "bitbucket_Server_Ecommerce_username"
+    password: !value "bitbucket_Server_Ecommerce_password"

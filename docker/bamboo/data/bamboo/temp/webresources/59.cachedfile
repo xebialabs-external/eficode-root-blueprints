@@ -1,0 +1,13 @@
+;
+try {
+/* module-key = 'com.atlassian.auiplugin:internal-skatejs-0.13.17-lib-globals', location = 'node_modules/skatejs/lib/globals.js' */
+("undefined"===typeof window?global:window).__6466b6e8107a8bd9775ee239234e3544=function(){var e={exports:{}},g=e.exports,j={module:e,exports:g,"./version":__14e4e8bfa403103c4675c6cb0be7a4a3,"./version":__14e4e8bfa403103c4675c6cb0be7a4a3},b;b=function(c,f,d){var b=("undefined"===typeof window?global:window).define,a,h,d=[d,f,c].filter(function(a){return"function"===typeof a})[0],f=[f,c,[]].filter(Array.isArray)[0];a=d.apply(null,f.map(function(a){return j[a]}));h=typeof a;"function"===typeof b&&b("string"===
+typeof c?c:"__6466b6e8107a8bd9775ee239234e3544",f,d);"string"===h?a=String(a):"number"===h?a=Number(a):"boolean"===h&&(a=Boolean(a));void 0!==a&&(g=e.exports=a)};b.amd=!0;var i=function(c,b,d){c="__skate_"+(d&&d.__esModule?d["default"]:d).replace(/[^\w]/g,"_");window[c]||(window[c]={observer:void 0,registry:{}});b.exports=window[c]};"function"===typeof b&&b.amd?b(["exports","module","./version"],i):"undefined"!==typeof g&&"undefined"!==typeof e&&i(g,e,__14e4e8bfa403103c4675c6cb0be7a4a3);return e.exports}.call(this);
+} catch (err) {
+    if (console && console.log && console.error) {
+        console.log("Error running batched script.");
+        console.error(err);
+    }
+}
+
+;

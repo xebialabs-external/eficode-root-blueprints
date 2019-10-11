@@ -1,0 +1,13 @@
+;
+try {
+/* module-key = 'com.atlassian.auiplugin:internal-src-js-aui-set-current', location = 'src/js/aui/set-current.js' */
+("undefined"===typeof window?global:window).__6a7d491adb2a09c02e4e3ac909eac82b=function(){function c(a,b){if(a=(0,e.default)(a))b?a.addClass("current"):a.removeClass("current")}var d={};"use strict";Object.defineProperty(d,"__esModule",{value:!0});var a=__bd7207540b95ff683caa1d3c0bfcc3d7,e=a&&a.__esModule?a:{"default":a},a=__c88c0dc6258c37804917fb6a0e4092fa,b=__9a668cbde1e182d8e721c23580356df2,b=b&&b.__esModule?b:{"default":b},c=(0,a.fn)(c,"setCurrent",{sinceVersion:"5.9.0",extraInfo:"No alternative will be provided. Use jQuery.addClass() / removeClass() instead."});
+(0,b.default)("setCurrent",c);d.default=c;return d=d["default"]}.call(this);
+} catch (err) {
+    if (console && console.log && console.error) {
+        console.log("Error running batched script.");
+        console.error(err);
+    }
+}
+
+;

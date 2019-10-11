@@ -1,0 +1,138 @@
+2019-10-10 12:02:35,995 INFO  [main]  o.s.boot.SpringApplication 
+  .   ____          _            __ _ _
+ /\\ / ___'_ __ _ _(_)_ __  __ _ \ \ \ \
+( ( )\___ | '_ | '_| | '_ \/ _` | \ \ \ \
+ \\/  ___)| |_)| | | | | || (_| |  ) ) ) )
+  '  |____| .__|_| |_|_| |_\__, | / / / /
+ =========|_|==============|___/=/_/_/_/
+ :: Spring Boot ::        (v2.1.5.RELEASE)
+
+
+2019-10-10 12:02:44,101 INFO  [main]  c.a.b.i.b.BitbucketServerApplication Starting BitbucketServerApplication on 9e59fb169601 with PID 115 (/opt/atlassian/bitbucket/app/WEB-INF/classes started by bitbucket in /var/atlassian/application-data/bitbucket)
+2019-10-10 12:02:44,139 INFO  [main]  c.a.b.i.b.BitbucketServerApplication No active profile set, falling back to default profiles: default
+2019-10-10 12:03:03,375 INFO  [main]  c.a.b.i.boot.log.BuildInfoLogger Starting Bitbucket 6.7.1 (bdc7899 built on Fri Oct 04 06:21:58 GMT 2019)
+2019-10-10 12:03:03,381 INFO  [main]  c.a.b.i.boot.log.BuildInfoLogger JVM: AdoptOpenJDK OpenJDK 64-Bit Server VM 1.8.0_222-b10
+2019-10-10 12:03:26,070 INFO  [main]  c.a.b.i.b.BitbucketServerApplication Started BitbucketServerApplication in 70.818 seconds (JVM running for 712.387)
+2019-10-10 12:03:47,357 INFO  [spring-startup]  c.a.s.internal.home.HomeLockAcquirer Successfully acquired lock on home directory /var/atlassian/application-data/bitbucket
+2019-10-10 12:04:03,565 INFO  [spring-startup]  c.a.s.internal.home.HomeLockAcquirer Successfully acquired lock on home directory /var/atlassian/application-data/bitbucket/shared
+2019-10-10 12:04:09,037 WARN  [spring-startup]  com.hazelcast.instance.Node [172.23.0.7]:5701 [bitbucket] [3.11.1] No join method is enabled! Starting standalone.
+2019-10-10 12:04:12,756 INFO  [spring-startup]  c.a.s.i.l.SetHierarchyIdsChange No repositories exist; no hierarchy IDs need to be set
+2019-10-10 12:04:56,905 INFO  [spring-startup]  c.a.s.i.hook.DefaultHookService Hook callback socket listening on 127.0.0.1:44777
+2019-10-10 12:05:01,400 INFO  [spring-startup]  c.a.s.i.s.g.t.DefaultTranscodeServer Callback socket listening at 127.0.0.1:43311
+2019-10-10 12:05:03,648 INFO  [spring-startup]  c.a.s.i.bootstrap.BootstrapOperation Application created
+2019-10-10 12:05:03,848 INFO  [spring-startup]  c.a.s.i.bootstrap.BootstrapOperation Directory created
+2019-10-10 12:05:04,064 INFO  [spring-startup]  c.a.s.i.bootstrap.BootstrapOperation Group added
+2019-10-10 12:05:04,256 INFO  [spring-startup]  c.a.s.i.bootstrap.Bootstrapper Generating unique server ID (SID)
+2019-10-10 12:05:04,485 INFO  [spring-startup]  c.a.s.i.s.g.u.s.SalGitUpgradeManager All synchronous upgrade tasks have completed
+2019-10-10 12:05:04,501 INFO  [git-upgrade]  c.a.s.i.s.g.u.s.SalGitUpgradeManager All asynchronous upgrade tasks have completed
+2019-10-10 12:05:09,222 WARN  [FelixStartLevel]  o.e.g.b.e.i.s.ExtenderConfiguration Gemini Blueprint extensions bundle not present, annotation processing disabled.
+2019-10-10 12:05:37,682 ERROR [ThreadPoolAsyncTaskExecutor::Thread 16]  c.a.plugin.osgi.factory.OsgiPlugin Unable to start the plugin container for plugin 'com.atlassian.bitbucket.server.bitbucket-emoticons'
+org.springframework.beans.factory.BeanCreationException: Error creating bean with name 'twemojiProvider' defined in URL [bundle://47.0:0/META-INF/spring/atlassian-plugins-components.xml]: Bean instantiation via constructor failed; nested exception is org.springframework.beans.BeanInstantiationException: Failed to instantiate [com.atlassian.bitbucket.internal.emoticons.twemoji.TwemojiProvider]: Constructor threw exception; nested exception is java.lang.NullPointerException
+	at org.springframework.beans.factory.support.ConstructorResolver.instantiate(ConstructorResolver.java:304)
+	at org.springframework.context.support.AbstractApplicationContext.finishBeanFactoryInitialization(AbstractApplicationContext.java:877)
+	at org.eclipse.gemini.blueprint.context.support.AbstractDelegatedExecutionApplicationContext.access$1600(AbstractDelegatedExecutionApplicationContext.java:57)
+	at org.eclipse.gemini.blueprint.context.support.AbstractDelegatedExecutionApplicationContext$4.run(AbstractDelegatedExecutionApplicationContext.java:322)
+	at org.eclipse.gemini.blueprint.util.internal.PrivilegedUtils.executeWithCustomTCCL(PrivilegedUtils.java:85)
+	at org.eclipse.gemini.blueprint.context.support.AbstractDelegatedExecutionApplicationContext.completeRefresh(AbstractDelegatedExecutionApplicationContext.java:287)
+	at org.eclipse.gemini.blueprint.extender.internal.dependencies.startup.DependencyWaiterApplicationContextExecutor$CompleteRefreshTask.run(DependencyWaiterApplicationContextExecutor.java:137)
+	at java.util.concurrent.ThreadPoolExecutor.runWorker(Unknown Source)
+	at java.lang.Thread.run(Unknown Source)
+	... 11 frames trimmed
+Caused by: org.springframework.beans.BeanInstantiationException: Failed to instantiate [com.atlassian.bitbucket.internal.emoticons.twemoji.TwemojiProvider]: Constructor threw exception; nested exception is java.lang.NullPointerException
+	at org.springframework.beans.BeanUtils.instantiateClass(BeanUtils.java:184)
+	... 9 common frames omitted
+Caused by: java.lang.NullPointerException: null
+	at com.atlassian.bitbucket.internal.emoticons.twemoji.TwemojiProvider.<init>(TwemojiProvider.java:47)
+	at org.springframework.beans.BeanUtils.instantiateClass(BeanUtils.java:172)
+	... 9 common frames omitted
+2019-10-10 12:05:38,280 ERROR [ThreadPoolAsyncTaskExecutor::Thread 16]  o.e.g.b.e.i.u.c.RunnableTimedExecution Closing runnable for context NonValidatingOsgiBundleXmlApplicationContext(bundle=com.atlassian.bitbucket.server.bitbucket-emoticons, config=osgibundle:/META-INF/spring/*.xml) did not finish in 500ms; consider taking a snapshot and then shutdown the VM in case the thread still hangs
+2019-10-10 12:05:38,291 ERROR [ThreadPoolAsyncTaskExecutor::Thread 16]  o.e.g.b.e.i.s.ExtenderConfiguration Application context refresh failed (NonValidatingOsgiBundleXmlApplicationContext(bundle=com.atlassian.bitbucket.server.bitbucket-emoticons, config=osgibundle:/META-INF/spring/*.xml))
+org.springframework.beans.factory.BeanCreationException: Error creating bean with name 'twemojiProvider' defined in URL [bundle://47.0:0/META-INF/spring/atlassian-plugins-components.xml]: Bean instantiation via constructor failed; nested exception is org.springframework.beans.BeanInstantiationException: Failed to instantiate [com.atlassian.bitbucket.internal.emoticons.twemoji.TwemojiProvider]: Constructor threw exception; nested exception is java.lang.NullPointerException
+	at org.springframework.beans.factory.support.ConstructorResolver.instantiate(ConstructorResolver.java:304)
+	at org.springframework.context.support.AbstractApplicationContext.finishBeanFactoryInitialization(AbstractApplicationContext.java:877)
+	at org.eclipse.gemini.blueprint.context.support.AbstractDelegatedExecutionApplicationContext.access$1600(AbstractDelegatedExecutionApplicationContext.java:57)
+	at org.eclipse.gemini.blueprint.context.support.AbstractDelegatedExecutionApplicationContext$4.run(AbstractDelegatedExecutionApplicationContext.java:322)
+	at org.eclipse.gemini.blueprint.util.internal.PrivilegedUtils.executeWithCustomTCCL(PrivilegedUtils.java:85)
+	at org.eclipse.gemini.blueprint.context.support.AbstractDelegatedExecutionApplicationContext.completeRefresh(AbstractDelegatedExecutionApplicationContext.java:287)
+	at org.eclipse.gemini.blueprint.extender.internal.dependencies.startup.DependencyWaiterApplicationContextExecutor$CompleteRefreshTask.run(DependencyWaiterApplicationContextExecutor.java:137)
+	at java.util.concurrent.ThreadPoolExecutor.runWorker(Unknown Source)
+	at java.lang.Thread.run(Unknown Source)
+	... 11 frames trimmed
+Caused by: org.springframework.beans.BeanInstantiationException: Failed to instantiate [com.atlassian.bitbucket.internal.emoticons.twemoji.TwemojiProvider]: Constructor threw exception; nested exception is java.lang.NullPointerException
+	at org.springframework.beans.BeanUtils.instantiateClass(BeanUtils.java:184)
+	... 9 common frames omitted
+Caused by: java.lang.NullPointerException: null
+	at com.atlassian.bitbucket.internal.emoticons.twemoji.TwemojiProvider.<init>(TwemojiProvider.java:47)
+	at org.springframework.beans.BeanUtils.instantiateClass(BeanUtils.java:172)
+	... 9 common frames omitted
+2019-10-10 12:05:38,305 ERROR [ThreadPoolAsyncTaskExecutor::Thread 16]  o.e.g.b.e.i.d.s.DependencyWaiterApplicationContextExecutor Unable to create application context for [com.atlassian.bitbucket.server.bitbucket-emoticons], unsatisfied dependencies: none
+org.springframework.beans.factory.BeanCreationException: Error creating bean with name 'twemojiProvider' defined in URL [bundle://47.0:0/META-INF/spring/atlassian-plugins-components.xml]: Bean instantiation via constructor failed; nested exception is org.springframework.beans.BeanInstantiationException: Failed to instantiate [com.atlassian.bitbucket.internal.emoticons.twemoji.TwemojiProvider]: Constructor threw exception; nested exception is java.lang.NullPointerException
+	at org.springframework.beans.factory.support.ConstructorResolver.instantiate(ConstructorResolver.java:304)
+	at org.springframework.context.support.AbstractApplicationContext.finishBeanFactoryInitialization(AbstractApplicationContext.java:877)
+	at org.eclipse.gemini.blueprint.context.support.AbstractDelegatedExecutionApplicationContext.access$1600(AbstractDelegatedExecutionApplicationContext.java:57)
+	at org.eclipse.gemini.blueprint.context.support.AbstractDelegatedExecutionApplicationContext$4.run(AbstractDelegatedExecutionApplicationContext.java:322)
+	at org.eclipse.gemini.blueprint.util.internal.PrivilegedUtils.executeWithCustomTCCL(PrivilegedUtils.java:85)
+	at org.eclipse.gemini.blueprint.context.support.AbstractDelegatedExecutionApplicationContext.completeRefresh(AbstractDelegatedExecutionApplicationContext.java:287)
+	at org.eclipse.gemini.blueprint.extender.internal.dependencies.startup.DependencyWaiterApplicationContextExecutor$CompleteRefreshTask.run(DependencyWaiterApplicationContextExecutor.java:137)
+	at java.util.concurrent.ThreadPoolExecutor.runWorker(Unknown Source)
+	at java.lang.Thread.run(Unknown Source)
+	... 11 frames trimmed
+Caused by: org.springframework.beans.BeanInstantiationException: Failed to instantiate [com.atlassian.bitbucket.internal.emoticons.twemoji.TwemojiProvider]: Constructor threw exception; nested exception is java.lang.NullPointerException
+	at org.springframework.beans.BeanUtils.instantiateClass(BeanUtils.java:184)
+	... 9 common frames omitted
+Caused by: java.lang.NullPointerException: null
+	at com.atlassian.bitbucket.internal.emoticons.twemoji.TwemojiProvider.<init>(TwemojiProvider.java:47)
+	at org.springframework.beans.BeanUtils.instantiateClass(BeanUtils.java:172)
+	... 9 common frames omitted
+2019-10-10 12:05:46,794 INFO  [active-objects-init-compatibility-tenant-0]  c.a.b.i.k.s.d.v.MigrateAccessKeysToServiceUsersTask Migrating key accesses to service users and permissions
+2019-10-10 12:05:46,863 INFO  [active-objects-init-compatibility-tenant-0]  c.a.b.i.k.s.d.v.MigrateAccessKeysToServiceUsersTask Migrated key accesses to service users and permissions
+2019-10-10 12:05:46,875 INFO  [active-objects-init-compatibility-tenant-0]  c.a.b.i.k.s.d.v.ApplyAccessKeysTypeTask Migrating to add label_lower and key_type to keys.
+2019-10-10 12:05:46,916 INFO  [active-objects-init-compatibility-tenant-0]  c.a.b.i.k.s.d.v.ApplyAccessKeysTypeTask Updated 0 access key users (IDs: [])
+2019-10-10 12:05:46,943 INFO  [active-objects-init-compatibility-tenant-0]  c.a.b.i.k.s.d.v.ApplyAccessKeysTypeTask Migrated keys to add label_lower and key_type
+2019-10-10 12:05:46,955 INFO  [active-objects-init-compatibility-tenant-0]  c.a.b.i.k.s.d.v.CorrectDisabledUserKeyTypeTask Migrating to correct disabled user key types.
+2019-10-10 12:05:47,043 INFO  [active-objects-init-compatibility-tenant-0]  c.a.b.i.k.s.d.v.UpdateEd25519KeyMd5sTask Re-encoded 0 ED25519 keys
+2019-10-10 12:05:47,137 INFO  [active-objects-init-compatibility-tenant-0]  c.a.s.i.r.r.r.dao.v2.MigrateToV2Task Migrating ref restrictions to version 2
+2019-10-10 12:05:47,221 INFO  [active-objects-init-compatibility-tenant-0]  c.a.s.i.r.r.r.dao.v2.MigrateToV2Task Ref restriction migration to version 2 complete.
+2019-10-10 12:05:47,314 INFO  [active-objects-init-compatibility-tenant-0]  c.a.b.i.b.m.dao.v2.MigrateToV2Task Migrating branch model to version 2
+2019-10-10 12:05:47,346 INFO  [active-objects-init-compatibility-tenant-0]  c.a.b.i.b.m.dao.v2.MigrateToV2Task Branch model migration complete
+2019-10-10 12:05:47,491 INFO  [active-objects-init-compatibility-tenant-0]  c.a.b.i.d.dao.v1.MigrateToV1Task Starting to migrate default reviewers model data
+2019-10-10 12:05:47,546 INFO  [active-objects-init-compatibility-tenant-0]  c.a.b.i.d.dao.v1.MigrateToV1Task Migration of default reviewers model data is complete
+2019-10-10 12:05:47,645 INFO  [active-objects-init-compatibility-tenant-0]  c.a.b.i.s.g.l.dao.v1.MigrateToV1Task Starting to migrate lfs locks model data
+2019-10-10 12:05:47,671 INFO  [active-objects-init-compatibility-tenant-0]  c.a.b.i.s.g.l.dao.v1.MigrateToV1Task Migration of lfs locks model data is complete
+2019-10-10 12:05:48,814 WARN  [spring-startup]  c.a.s.i.p.s.OsgiBundledPathScanner Cannot scan directory /com/atlassian/plugin/connect/confluence/ in bundle com.atlassian.plugins.atlassian-connect-plugin; it does not exist
+2019-10-10 12:05:49,023 WARN  [spring-startup]  c.a.p.c.r.StaticPluginPathScanner Cannot scan directory /static/bitbucket/internal/feature/admin/ratelimit/ in web static as it does not exist
+2019-10-10 12:05:50,962 WARN  [spring-startup]  c.a.s.i.p.s.OsgiBundledPathScanner Cannot scan directory /com/atlassian/oauth/shared/servlet/ in bundle com.atlassian.oauth.atlassian-oauth-service-provider-plugin; it does not exist
+2019-10-10 12:05:51,457 WARN  [spring-startup]  c.a.s.i.p.s.OsgiBundledPathScanner Cannot scan directory /com/atlassian/oauth/shared/servlet/ in bundle tac.bitbucket.languages.de_DE; it does not exist
+2019-10-10 12:05:51,466 WARN  [spring-startup]  c.a.s.i.p.s.OsgiBundledPathScanner Cannot scan directory /com/atlassian/oauth/shared/servlet/ in bundle tac.bitbucket.languages.fr_FR; it does not exist
+2019-10-10 12:05:51,492 WARN  [spring-startup]  c.a.s.i.p.s.OsgiBundledPathScanner Cannot scan directory /com/atlassian/oauth/shared/servlet/ in bundle tac.bitbucket.languages.ja_JP; it does not exist
+2019-10-10 12:05:51,540 INFO  [spring-startup]  c.a.s.i.s.OperatingSystemTracker Capturing benchmark operating system: LINUX
+2019-10-10 12:05:51,673 INFO  [spring-startup]  c.a.s.internal.scm.PluginScmService Bitbucket is using /usr/bin/git version 2.17.1
+2019-10-10 12:05:51,679 INFO  [spring-startup]  c.a.stash.internal.home.HomeTracker Capturing benchmark shared home directory: /var/atlassian/application-data/bitbucket/shared
+2019-10-10 12:06:01,713 INFO  [Caesium-1-3]  c.a.s.i.p.PullRequestCommitBackfillJob Starting backfill of pull request commits.
+2019-10-10 12:06:01,732 INFO  [Caesium-1-3]  c.a.s.i.p.PullRequestCommitBackfillJob Backfilling of pull request commits has completed for all repositories.
+2019-10-10 12:13:45,439 INFO  [AtlassianEvent::thread-2] @R2Q97Xx733x28x0 1wd6zia 172.23.0.1 "POST /setup HTTP/1.1" c.a.b.internal.ssh.server.SshServer Starting SSH server on port 7999...
+2019-10-10 12:13:45,788 INFO  [AtlassianEvent::thread-2] @R2Q97Xx733x28x0 1wd6zia 172.23.0.1 "POST /setup HTTP/1.1" c.a.b.internal.ssh.server.SshServer Started SSH server successfully.
+2019-10-10 12:13:46,449 INFO  [AtlassianEvent::thread-2] @R2Q97Xx733x28x0 1wd6zia 172.23.0.1 "POST /setup HTTP/1.1" c.a.s.i.b.h.RequiredBuildsUpgradeTask Enabled required builds hook for 0 repositories
+2019-10-10 12:13:46,484 INFO  [AtlassianEvent::thread-2] @R2Q97Xx733x28x0 1wd6zia 172.23.0.1 "POST /setup HTTP/1.1" c.a.s.i.p.u.MergeCheckToHooksV2UpgradeTask Enabled All approvers merge check hook for 0 repositories
+2019-10-10 12:13:46,489 INFO  [AtlassianEvent::thread-2] @R2Q97Xx733x28x0 1wd6zia 172.23.0.1 "POST /setup HTTP/1.1" c.a.s.i.p.u.MergeCheckToHooksV2UpgradeTask Enabled Incomplete Tasks merge check hook for 0 repositories
+2019-10-10 12:13:46,496 INFO  [AtlassianEvent::thread-2] @R2Q97Xx733x28x0 1wd6zia 172.23.0.1 "POST /setup HTTP/1.1" c.a.s.i.p.u.MergeCheckToHooksV2UpgradeTask Enabled Required approvers merge check hook for 0 repositories
+2019-10-10 12:13:47,964 INFO  [threadpool:thread-1] @R2Q97Xx733x28x0 1wd6zia 172.23.0.1 "POST /setup HTTP/1.1" c.a.s.i.j.i.u.JiraIndexUpgradeTask Indexing issues in all repositories
+2019-10-10 12:13:47,973 INFO  [threadpool:thread-1] @R2Q97Xx733x28x0 1wd6zia 172.23.0.1 "POST /setup HTTP/1.1" c.a.s.i.j.i.u.JiraIndexUpgradeTask Indexing completed
+2019-10-10 12:13:47,995 INFO  [AtlassianEvent::thread-2] @R2Q97Xx733x28x0 1wd6zia 172.23.0.1 "POST /setup HTTP/1.1" c.a.b.i.s.c.c.DefaultClusterJobManager Registering job for StartupChecksJob
+2019-10-10 12:13:48,004 INFO  [AtlassianEvent::thread-2] @R2Q97Xx733x28x0 1wd6zia 172.23.0.1 "POST /setup HTTP/1.1" c.a.b.i.s.c.j.c.HealthCheckRunner New health check registered: AuthenticationCheck
+2019-10-10 12:13:48,184 INFO  [AtlassianEvent::thread-2] @R2Q97Xx733x28x0 1wd6zia 172.23.0.1 "POST /setup HTTP/1.1" c.a.b.i.s.i.e.DefaultIndexEventQueueProcessor Event queue processor has been started
+2019-10-10 12:13:48,184 INFO  [AtlassianEvent::thread-2] @R2Q97Xx733x28x0 1wd6zia 172.23.0.1 "POST /setup HTTP/1.1" c.a.b.i.s.c.j.c.HealthCheckRunner New health check registered: KnownIssueCheck
+2019-10-10 12:13:48,185 INFO  [AtlassianEvent::thread-2] @R2Q97Xx733x28x0 1wd6zia 172.23.0.1 "POST /setup HTTP/1.1" c.a.b.i.s.c.j.c.HealthCheckRunner New health check registered: SearchIndexCheck
+2019-10-10 12:13:48,185 INFO  [AtlassianEvent::thread-2] @R2Q97Xx733x28x0 1wd6zia 172.23.0.1 "POST /setup HTTP/1.1" c.a.b.i.s.c.c.DefaultClusterJobManager Registering job for ElasticsearchSynchronizeJob
+2019-10-10 12:14:05,981 INFO  [Caesium-1-3]  c.a.b.i.s.c.s.p.AutomaticAuthenticationProvisioner Performing automatic Elasticsearch auth configuration
+2019-10-10 12:14:06,491 INFO  [Caesium-1-3]  c.a.b.i.s.i.jobs.StartupChecksJob Running startup jobs for search
+2019-10-10 12:14:08,256 INFO  [Caesium-1-2]  c.a.b.i.s.i.j.c.SearchIndexCheck Rescheduling Startup Checks to ensure the bitbucket-search Elasticsearch index will be recreated.
+2019-10-10 12:14:08,265 INFO  [Caesium-1-2]  c.a.b.i.s.c.c.DefaultClusterJobManager Attempting to schedule an ad-hoc for StartupChecksJob
+2019-10-10 12:14:08,266 INFO  [Caesium-1-2]  c.a.b.i.s.c.c.DefaultClusterJobManager There are currently 2 to select from
+2019-10-10 12:14:09,878 INFO  [Caesium-1-3]  c.a.b.i.s.i.IndexingSynchronizationService Mapping in Elasticsearch has been created successfully
+2019-10-10 12:14:16,362 INFO  [http-nio-7990-exec-1] bitbucket @R2Q97Xx734x74x0 1wd6zia 172.23.0.1 "POST /projects HTTP/1.1" c.a.s.i.p.DefaultProjectService Created new project: (IN) insecure-bank
+2019-10-10 12:14:53,616 WARN  [http-nio-7990-exec-5] bitbucket @R2Q97Xx734x113x0 1wd6zia 172.23.0.1 "POST /rest/importer/latest/external-source/missing-oauth-scopes HTTP/1.1" c.a.b.i.i.r.ExternalRepositoryResource Error making external request: Authentication failed. Please check your credentials and try again.
+2019-10-10 12:15:04,210 WARN  [http-nio-7990-exec-2] bitbucket @R2Q97Xx735x114x0 1wd6zia 172.23.0.1 "POST /rest/importer/latest/external-source/missing-oauth-scopes HTTP/1.1" c.a.b.i.i.r.ExternalRepositoryResource Error making external request: Authentication failed. Please check your credentials and try again.
+2019-10-10 12:16:45,861 INFO  [http-nio-7990-exec-4] bitbucket @R2Q97Xx736x120x0 1wd6zia 172.23.0.1 "POST /rest/importer/latest/projects/IN/import/repos HTTP/1.1" c.a.s.i.s.git.command.CreateCommand Repository IN/insecure-bank (1) has been created and configured successfully
+2019-10-10 12:20:10,112 WARN  [AtlassianEvent::thread-4] bitbucket @R2Q97Xx740x176x1 1wd6zia 172.23.0.1 "GET /rest/applinks/3.0/applicationlinkForm/manifest.json HTTP/1.1" c.a.a.i.c.DefaultRemoteCapabilitiesService Exception trying to get Applink for manifest with ID 05925aed-3029-3287-b7c1-de333e9c9fa2
+2019-10-10 12:21:09,505 WARN  [http-nio-7990-exec-8] bitbucket @R2Q97Xx741x249x5 1wd6zia 172.23.0.1 "GET /rest/plugins/1.0/installed-marketplace HTTP/1.1" com.atlassian.upm.pac.PacClientImpl The request to check for add-on updates may take longer than expected because 80 user-installed add-ons are installed. This may impact the performance of loading the Manage Add-ons page.

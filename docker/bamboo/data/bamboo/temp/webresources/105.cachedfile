@@ -1,0 +1,12 @@
+;
+try {
+/* module-key = 'com.atlassian.auiplugin:internal-src-js-aui-underscore', location = 'src/js/aui/underscore.js' */
+("undefined"===typeof window?global:window).__b8debe7dbacd8c0f9a68380b427aca10=function(){var b={};"use strict";Object.defineProperty(b,"__esModule",{value:!0});var a=__f97340202cf7ae2d8f4dc9fc2d3264af,a=a&&a.__esModule?a:{"default":a};window._||(window._=a.default);b.default=window._;return b=b["default"]}.call(this);
+} catch (err) {
+    if (console && console.log && console.error) {
+        console.log("Error running batched script.");
+        console.error(err);
+    }
+}
+
+;

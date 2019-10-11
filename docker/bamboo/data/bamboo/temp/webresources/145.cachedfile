@@ -1,0 +1,12 @@
+;
+try {
+/* module-key = 'com.atlassian.applinks.applinks-oauth-plugin:oauth-dance', location = 'com/atlassian/applinks/oauth/auth/oauth-dance.js' */
+AJS.$(document).bind(AppLinks.Event.READY,function(){(function(a){var b=(a(".error").length==0)&&(AJS.$("#applink-authorized").val()=="true");if(window.opener&&window.opener.oauthCallback){if(b){window.opener.oauthCallback.success()}else{a("#continue-link").click(function(){window.opener.oauthCallback.failure()})}}})(AJS.$)});
+} catch (err) {
+    if (console && console.log && console.error) {
+        console.log("Error running batched script.");
+        console.error(err);
+    }
+}
+
+;

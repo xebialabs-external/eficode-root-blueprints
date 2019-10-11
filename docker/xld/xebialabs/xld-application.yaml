@@ -1,0 +1,39 @@
+---
+apiVersion: xl-deploy/v1
+kind: Applications
+spec:
+- name: Applications/testapp
+  type: udm.Application
+  lastVersion: "1.0"
+  children:
+  - name: "1.0"
+    type: udm.DeploymentPackage
+    deployables:
+    - name: whoami
+      type: cmd.Command
+      commandLine: whoami
+---
+
+apiVersion: xl-deploy/v1
+kind: Infrastructure
+spec:
+- name: Infrastructure/localhost
+  type: overthere.LocalHost
+  os: UNIX
+- name: docker
+  type: docker.Engine
+  dockerHost: !value DOCKER_HOST
+---
+
+apiVersion: xl-deploy/v1
+kind: Environments
+spec:
+  - name: app-dict
+    type: udm.Dictionary
+  - name: Environments/dev
+    type: udm.Environment
+    members:
+    - ~Infrastructure/docker
+    - ~Infrastructure/localhost
+    dictionaries:
+    - Environments/app-dict

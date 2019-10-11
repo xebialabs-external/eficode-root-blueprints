@@ -1,0 +1,32 @@
+#artifactory_Server_Ecommerce_url = http://artifactory:8081/artifactory
+#jenkins_Server_Ecommerce_url = http://jenkins:8080
+#jira_url = https://xebialabs.atlassian.net
+#bitbucket_Server_Ecommerce_url=http://bitbucket:7990/
+#sonar_Server_Ecommerce_url = http://54.227.137.132:9000/
+#xldeploy_Server_Ecommerce_ur# = http://xl-deploy:4516
+
+bamboo_Server_Ecommerce_url = http://bamboo:8085/
+
+artifactory_Server_Ecommerce_url = https://artifactory.rootdemo.eficode.io
+jenkins_Server_Ecommerce_url = https://ci.rootdemo.eficode.io
+jira_url = https://jira.rootdemo.eficode.io
+bamboo_Server_Ecommerce_url = https://bamboo.rootdemo.eficode.io/
+bitbucket_Server_Ecommerce_url = https://scm.rootdemo.eficode.io/
+sonar_Server_Ecommerce_url = https://sonar.rootdemo.eficode.io/
+xldeploy_Server_Ecommerce_url = https://xldeploy.rootdemo.eficode.io/
+
+
+#xldeploy_Server_Ecommerce_username = admin
+#artifactory_Server_Ecommerce_username = admin
+#jenkins_Server_Ecommerce_username = admin
+#bamboo_Server_Ecommerce_username = bamboo
+#bitbucket_Server_Ecommerce_username = bitbucket
+#sonar_Server_Ecommerce_username = admin
+
+jira_username = xebiademo
+xldeploy_Server_Ecommerce_username = admin
+artifactory_Server_Ecommerce_username = xebiademo
+jenkins_Server_Ecommerce_username = xebiademo
+bamboo_Server_Ecommerce_username = xebiademo
+bitbucket_Server_Ecommerce_username = xebiademo
+sonar_Server_Ecommerce_username = xebiademo

@@ -1,0 +1,13 @@
+;
+try {
+/* module-key = 'com.atlassian.auiplugin:internal-src-js-aui-set-visible', location = 'src/js/aui/set-visible.js' */
+("undefined"===typeof window?global:window).__0f0bf05abd4e432d62689fada588acec=function(){function d(a,b){if(a=(0,c.default)(a))(0,c.default)(a).each(function(){var a=(0,c.default)(this).hasClass("hidden");a&&b?(0,c.default)(this).removeClass("hidden"):!a&&!b&&(0,c.default)(this).addClass("hidden")})}var e={};"use strict";Object.defineProperty(e,"__esModule",{value:!0});var a=__bd7207540b95ff683caa1d3c0bfcc3d7,c=a&&a.__esModule?a:{"default":a},a=__c88c0dc6258c37804917fb6a0e4092fa,b=__9a668cbde1e182d8e721c23580356df2,
+b=b&&b.__esModule?b:{"default":b},d=(0,a.fn)(d,"setVisible",{sinceVersion:"5.9.0",extraInfo:"No alternative will be provided. Use jQuery.addClass() / removeClass() instead."});(0,b.default)("setVisible",d);e.default=d;return e=e["default"]}.call(this);
+} catch (err) {
+    if (console && console.log && console.error) {
+        console.log("Error running batched script.");
+        console.error(err);
+    }
+}
+
+;

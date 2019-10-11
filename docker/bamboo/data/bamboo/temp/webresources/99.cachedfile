@@ -1,0 +1,12 @@
+;
+try {
+/* module-key = 'com.atlassian.auiplugin:internal-src-js-aui-internal-animation', location = 'src/js/aui/internal/animation.js' */
+("undefined"===typeof window?global:window).__5751b8a604ec61b53b208676ae78d41d=function(){var b={};"use strict";Object.defineProperty(b,"__esModule",{value:!0});b.recomputeStyle=function(a){a=a.jquery?a[0]:a;window.getComputedStyle(a,null).getPropertyValue("left")};return b}.call(this);
+} catch (err) {
+    if (console && console.log && console.error) {
+        console.log("Error running batched script.");
+        console.error(err);
+    }
+}
+
+;

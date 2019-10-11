@@ -1,0 +1,15 @@
+;
+try {
+/* module-key = 'com.atlassian.auiplugin:internal-skatejs-0.13.17-lib-document-observer', location = 'node_modules/skatejs/lib/document-observer.js' */
+("undefined"===typeof window?global:window).__b7cb55ffd65d50bc7384d171b3fbf223=function(){var c={exports:{}},f=c.exports,j={module:c,exports:f,"./globals":__6466b6e8107a8bd9775ee239234e3544,"./lifecycle":__3fef6ec7435c6573502a7e24c04dbfbc,"./mutation-observer":__04e4ad44d1846e5700205516c1a42717,"./fix-ie-innerhtml":__5bf8bab9193a36a76f2f07e8489c8bac,"./utils":__e41b80779e59ba9fc2f4dc8f4297bd33,"./globals":__6466b6e8107a8bd9775ee239234e3544,"./lifecycle":__3fef6ec7435c6573502a7e24c04dbfbc,"./mutation-observer":__04e4ad44d1846e5700205516c1a42717,
+"./fix-ie-innerhtml":__5bf8bab9193a36a76f2f07e8489c8bac,"./utils":__e41b80779e59ba9fc2f4dc8f4297bd33},d;d=function(d,e,b){var k=("undefined"===typeof window?global:window).define,a,g,b=[b,e,d].filter(function(a){return"function"===typeof a})[0],e=[e,d,[]].filter(Array.isArray)[0];a=b.apply(null,e.map(function(a){return j[a]}));g=typeof a;"function"===typeof k&&k("string"===typeof d?d:"__b7cb55ffd65d50bc7384d171b3fbf223",e,b);"string"===g?a=String(a):"number"===g?a=Number(a):"boolean"===g&&(a=Boolean(a));
+void 0!==a&&(f=c.exports=a)};d.amd=!0;var i=function(d,e,b,c,a,g,f){function i(a){for(var d=a.length,c=0;c<d;c++){var b=a[c],e=b.addedNodes,b=b.removedNodes;e&&(e.length&&!l(e[0].parentNode))&&j(e);b&&b.length&&m(b)}}var h=b&&b.__esModule?b["default"]:b,j=c.initElements,m=c.removeElements,l=f.getClosestIgnoredElement;e.exports={register:function(a){a&&this.unregister();h.observer||(a=new window.MutationObserver(i),a.observe(document,{childList:!0,subtree:!0}),h.observer=a);return this},unregister:function(){h.observer&&
+(h.observer.disconnect(),h.observer=void 0);return this}}};"function"===typeof d&&d.amd?d("exports module ./globals ./lifecycle ./mutation-observer ./fix-ie-innerhtml ./utils".split(" "),i):"undefined"!==typeof f&&"undefined"!==typeof c&&i(f,c,__6466b6e8107a8bd9775ee239234e3544,__3fef6ec7435c6573502a7e24c04dbfbc,__04e4ad44d1846e5700205516c1a42717,__5bf8bab9193a36a76f2f07e8489c8bac,__e41b80779e59ba9fc2f4dc8f4297bd33);return c.exports}.call(this);
+} catch (err) {
+    if (console && console.log && console.error) {
+        console.log("Error running batched script.");
+        console.error(err);
+    }
+}
+
+;

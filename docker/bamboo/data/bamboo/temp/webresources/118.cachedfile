@@ -1,0 +1,12 @@
+;
+try {
+/* module-key = 'com.atlassian.auiplugin:internal-src-js-aui-layer-manager', location = 'src/js/aui/layer-manager.js' */
+("undefined"===typeof window?global:window).__d16d3e068aca500bb6ad86bf160d14ed=function(){var c={};"use strict";Object.defineProperty(c,"__esModule",{value:!0});var b=__9a668cbde1e182d8e721c23580356df2,b=b&&b.__esModule?b:{"default":b},a=__bbe882dbb07e18e72992d5f992bba14c,a=a&&a.__esModule?a:{"default":a};(0,b.default)("LayerManager",a.default.Manager);c.default=a.default.Manager;return c=c["default"]}.call(this);
+} catch (err) {
+    if (console && console.log && console.error) {
+        console.log("Error running batched script.");
+        console.error(err);
+    }
+}
+
+;

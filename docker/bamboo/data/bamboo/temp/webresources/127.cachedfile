@@ -1,0 +1,12 @@
+;
+try {
+/* module-key = 'com.atlassian.auiplugin:internal-src-js-aui-fancy-file-input', location = 'src/js/aui/fancy-file-input.js' */
+("undefined"===typeof window?global:window).__4573fe1598bcafe466e0889a20eacc79=function(){var a={};Object.defineProperty(a,"__esModule",{value:!0});var b=__22a4d9f2966b7fbb6d0e3d6f80b96c9c;a.default=(b&&b.__esModule?b:{"default":b}).default;return a=a["default"]}.call(this);
+} catch (err) {
+    if (console && console.log && console.error) {
+        console.log("Error running batched script.");
+        console.error(err);
+    }
+}
+
+;

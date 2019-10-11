@@ -1,0 +1,80 @@
+jenkins:
+  agentProtocols:
+  - "JNLP4-connect"
+  - "Ping"
+  authorizationStrategy: "loggedInUsersCanDoAnything"
+  disableRememberMe: false
+  markupFormatter: "plainText"
+  mode: NORMAL
+  myViewsTabBar: "standard"
+  numExecutors: 2
+  primaryView:
+    all:
+      name: "all"
+  projectNamingStrategy: "standard"
+  quietPeriod: 5
+  remotingSecurity:
+    enabled: false
+  scmCheckoutRetryCount: 0
+  securityRealm:
+    local:
+      allowsSignup: false
+      enableCaptcha: false
+      users:
+      - id: "admin"
+        password: ${jenkins_password:-xebialabs}
+tool:
+  dockerTool:
+    installations:
+    - name: "docker"
+      properties:
+      - installSource:
+          installers:
+          - docker:
+              version: "latest"
+  git:
+    installations:
+    - home: "git"
+      name: "Default"
+
+jobs:
+  - script: >
+      multibranchPipelineJob('BacktraceApp') {
+        branchSources {
+          git {
+            id = 'BacktraceApp'
+            remote('https://github.com/abelmathew/xebia-bt')
+          }
+          triggers {
+            periodic(1)
+          }
+        }
+      }
+
+credentials:
+  system:
+    domainCredentials:
+      - credentials:
+        - usernamePassword:
+            scope:    GLOBAL
+            id:       xld
+            username: admin
+            password: ${xld_password:-admin}
+        - usernamePassword:
+            scope:    GLOBAL
+            id:       xlr
+            username: admin
+            password: ${xlr_password:-admin}
+        - usernamePassword:
+            scope:    GLOBAL
+            id:       docker-login
+            username: ${DOCKER_USER}
+            password: ${DOCKER_PASS}
+
+unclassified:
+  xLReleaseNotifier:
+    credentials:
+    - credentialsId: "xlr"
+      name: "xlr"
+      useGlobalCredential: true
+    xlReleaseServerUrl: "http://xlr:5516"

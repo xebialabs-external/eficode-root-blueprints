@@ -1,0 +1,13 @@
+;
+try {
+/* module-key = 'com.atlassian.auiplugin:internal-src-js-aui-header', location = 'src/js/aui/header.js' */
+("undefined"===typeof window?global:window).__96c527b2dea71f00bd040ef0cbcf4d70=function(){function e(a){return a&&a.__esModule?a:{"default":a}}function f(){(0,g.default)(".aui-header").each(function(){(0,h.default)(this)})}var d={};"use strict";Object.defineProperty(d,"__esModule",{value:!0});var g=e(__bd7207540b95ff683caa1d3c0bfcc3d7),h=e(__fb1ea8007a584168c1a1610db14baf17),b;var a=__c88c0dc6258c37804917fb6a0e4092fa;if(a&&a.__esModule)b=a;else{var c={};if(null!=a)for(b in a)Object.prototype.hasOwnProperty.call(a,
+b)&&(c[b]=a[b]);c.default=a;b=c}a=e(__9a668cbde1e182d8e721c23580356df2);(0,g.default)(f);c={};c.setup=b.fn(f,"responsiveheader.setup",{removeInVersion:"8.0.0",sinceVersion:"5.8.0",extraInfo:"No need to manually initialise anymore as this is now a web component."});(0,a.default)("responsiveheader",c);d.default=c;return d=d["default"]}.call(this);
+} catch (err) {
+    if (console && console.log && console.error) {
+        console.log("Error running batched script.");
+        console.error(err);
+    }
+}
+
+;

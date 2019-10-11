@@ -1,0 +1,13 @@
+;
+try {
+/* module-key = 'com.atlassian.auiplugin:internal-src-js-aui-i18n', location = 'src/js/aui/i18n.js' */
+("undefined"===typeof window?global:window).__780f92e84f7b06d16e986a531e56e288=function(){function c(a){return a&&a.__esModule?a:{"default":a}}var b={};"use strict";Object.defineProperty(b,"__esModule",{value:!0});var e=c(__b9ecb36a7ca0505acec463b07515cb6c),f=c(__9a668cbde1e182d8e721c23580356df2),d={keys:c(__6f862c4c1a4dce4ede227d7c9ebe2e92).default,getText:function(a){var b=Array.prototype.slice.call(arguments,1);return Object.prototype.hasOwnProperty.call(this.keys,a)?e.default.apply(null,[this.keys[a]].concat(b)):
+a}};(0,f.default)("I18n",d);b.default=d;return b=b["default"]}.call(this);
+} catch (err) {
+    if (console && console.log && console.error) {
+        console.log("Error running batched script.");
+        console.error(err);
+    }
+}
+
+;

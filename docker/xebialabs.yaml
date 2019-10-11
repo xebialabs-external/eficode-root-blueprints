@@ -1,0 +1,8 @@
+apiVersion: xl/v1
+kind: Import
+metadata:
+  imports:
+    - xlr/xebialabs/configuration.yaml
+    - xlr/xebialabs/users.yaml
+    - xlr/xebialabs/ecommerceAppReleaseProcess-atlassianStack.yaml
+    - xld/xebialabs/xld-application.yaml
