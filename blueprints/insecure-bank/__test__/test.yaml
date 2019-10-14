@@ -1,0 +1,8 @@
+answers-file: answers.yaml
+expected-files:
+- xebialabs.yaml
+- xebialabs/xld-insecure-bank-applications.yaml
+- xebialabs/xld-insecure-bank-environments.yaml
+- xebialabs/xld-insecure-bank-infrastructure.yaml
+- xebialabs/xlr-insecure-bank-pipeline-ci-cd.yaml
+- xebialabs/xlr-insecure-bank-pipeline-destroy.yaml

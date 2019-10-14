@@ -1,0 +1,24 @@
+{{ $app := .AppName | kebabcase }}
+apiVersion: xl-release/v1
+kind: Templates
+spec:
+- name: {{$app}}
+  type: xlrelease.Folder
+  children:
+  - name: {{$app}}-destroy
+    type: xlrelease.Release
+    description: Undeploy the app
+    tags:
+    - ecommerce
+    - java
+    scriptUsername: !value XL_RELEASE_USERNAME
+    scriptUserPassword: !value XL_RELEASE_PASSWORD
+    phases:
+    - name: Undeploy
+      type: xlrelease.Phase
+      color: '#d94c3d'
+      tasks:
+      - name: Undeploy the app
+        type: xldeploy.Undeploy
+        server: XL Deploy
+        deployedApplication: "Environments/{{$app}}/dev/testapp"

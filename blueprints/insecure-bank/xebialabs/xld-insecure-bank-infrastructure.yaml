@@ -1,0 +1,9 @@
+apiVersion: xl-deploy/v1
+kind: Infrastructure
+spec:
+- name: Infrastructure/docker
+  type: docker.Engine
+  dockerHost: http://deroottestniko01.eficode.io:2375
+- name: Infrastructure/localhost
+  type: overthere.LocalHost
+  os: UNIX

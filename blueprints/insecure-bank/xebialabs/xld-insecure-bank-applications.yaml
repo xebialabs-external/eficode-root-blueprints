@@ -1,0 +1,13 @@
+apiVersion: xl-deploy/v1
+kind: Applications
+spec:
+- name: testapp
+  type: udm.Application
+  lastVersion: "1.0"
+  children:
+  - name: "1.0"
+    type: udm.DeploymentPackage
+    deployables:
+    - name: whoami
+      type: cmd.Command
+      commandLine: whoami

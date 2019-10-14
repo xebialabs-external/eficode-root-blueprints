@@ -1,0 +1,521 @@
+apiVersion: xl-release/v1
+kind: Templates
+spec:
+- directory: Ecommerce
+  children:
+  - name: Ecommerce
+    type: artifactory.Server
+    url: !value "artifactory_Server_Ecommerce_url"
+    username: !value "artifactory_Server_Ecommerce_username"
+    password: !value "artifactory_Server_Ecommerce_password"
+  - name: Ecommerce
+    type: bamboo.Server
+    url: !value "bamboo_Server_Ecommerce_url"
+    username: !value "bamboo_Server_Ecommerce_username"
+    password: !value "bamboo_Server_Ecommerce_password"
+  - name: Ecommerce
+    type: jenkins.Server
+    url: !value "jenkins_Server_Ecommerce_username"
+    username: !value "jenkins_Server_Ecommerce_username"
+    password: !value "jenkins_Server_Ecommerce_password"
+  - name: Ecommerce
+    type: jira.Server
+    url: !value "jira_Server_Ecommerce_url"
+    username: !value "jira_Server_Ecommerce_username"
+    password: !value "jira_Server_Ecommerce_password"
+  - name: Ecommerce
+    type: sonar.Server
+    url: !value "sonar_Server_Ecommerce_url"
+    username: !value "sonar_Server_Ecommerce_username"
+    password: !value "sonar_Server_Ecommerce_password"
+  - name: Ecommerce
+    type: stash.Server
+    url: !value "stash_Server_Ecommerce_url"
+    username: !value "stash_Server_Ecommerce_username"
+    password: !value "stash_Server_Ecommerce_password"
+  - name: Ecommerce
+    type: xldeploy.XLDeployServer
+    url: !value "xldeploy_XLDeployServer_Ecommerce_url"
+    username: !value "xldeploy_XLDeployServer_Ecommerce_username"
+    password: !value "xldeploy_XLDeployServer_Ecommerce_password"
+  - template: EcommerceAppReleaseProcess-atlassianStack
+    phases:
+    - phase: Plan
+      tasks:
+      - name: Create User Story
+        type: jira.CreateIssue
+        jiraServer: Ecommerce
+        project: ROOTDEMO
+        description: |-
+          This user story is for design of the microsite feature on the
+          ecommerce website.
+        variableMapping:
+          pythonScript.issueId: ${jiraticket}
+      - name: User story and change request review
+        type: xlrelease.Task
+        owner: David
+        tags:
+        - approval
+      color: '#009CDB'
+    - phase: Build
+      tasks:
+      - name: Build package
+        type: jenkins.Build
+        jenkinsServer: Ecommerce
+        jobName: Docker
+        variableMapping:
+          pythonScript.buildNumber: ${buildNumber}
+      - name: Automated system testing
+        type: xlrelease.ScriptTask
+        owner: admin
+        script: |-
+          import time
+          time.sleep(5)
+          print "Performing Smoke Tests"
+      - name: Update User Story
+        type: jira.UpdateIssue
+        jiraServer: Ecommerce
+        issueId: ${jiraticket}
+        newStatus: IN PROGRESS
+        comment: Deployed
+      - name: QA Control Approval
+        type: xlrelease.GateTask
+        owner: admin
+        tags:
+        - approval
+        conditions:
+        - name: Automated System testing successful ?
+          type: xlrelease.GateCondition
+        - name: Unit testing successful ?
+          type: xlrelease.GateCondition
+        - name: All manual test cases prepared and verified ?
+          type: xlrelease.GateCondition
+        - name: Code quality and security analysis desirable ?
+          type: xlrelease.GateCondition
+      color: '#08B153'
+    - phase: Deploy
+      tasks:
+      - name: Deploy to DEV
+        type: xldeploy.Deploy
+        server: Ecommerce
+        deploymentApplication: Applications/testapp
+        deploymentVersion: "1"
+        deploymentPackage: Applications/testapp/1.0
+        deploymentEnvironment: Environments/dev
+      - name: Update User Story
+        type: jira.UpdateIssue
+        jiraServer: Ecommerce
+        issueId: ${jiraticket}
+        comment: Deployed to QA
+      color: '#FD8D10'
+    - phase: Test
+      tasks:
+      - name: Code Quality Analysis
+        type: sonar.checkCompliance
+        sonarServer: Ecommerce
+        resource: root-demo
+      - name: Application checks
+        type: xlrelease.ScriptTask
+        owner: admin
+        script: |-
+          import time
+          import random
+          time.sleep(10)
+          print "Performing  Load Tests"
+          if random.randint(0, 1) < 1:
+              releaseVariables['monitorResult'] = False
+          else:
+              releaseVariables['monitorResult'] = True
+      color: '#0099CC'
+    tags:
+    - ecommerce
+    - java
+    variables:
+    - type: xlrelease.StringVariable
+      key: buildNumber
+      requiresValue: false
+      showOnReleaseStart: false
+    - type: xlrelease.StringVariable
+      key: ticket
+      requiresValue: false
+      showOnReleaseStart: false
+    - type: xlrelease.StringVariable
+      key: changeRequestStatus
+      requiresValue: false
+      showOnReleaseStart: false
+    - type: xlrelease.StringVariable
+      key: jiraticket
+      requiresValue: false
+      showOnReleaseStart: false
+    - type: xlrelease.StringVariable
+      key: applicationVersion
+      requiresValue: false
+      showOnReleaseStart: false
+    - type: xlrelease.BooleanVariable
+      key: monitorResult
+      requiresValue: false
+      showOnReleaseStart: false
+    - type: xlrelease.StringVariable
+      key: enviro
+      requiresValue: false
+      showOnReleaseStart: false
+    - type: xlrelease.StringVariable
+      key: applicationName
+      showOnReleaseStart: false
+      value: insecure-bank
+    scriptUsername: admin
+    scriptUserPassword: !value "xlrelease_Release_EcommerceAppReleaseProcess_scriptUserPassword"
+    riskProfile: Default risk profile
+  - name: Deployments
+    type: xlrelease.DeploymentsByStageDashboard
+    owner: admin
+    tiles:
+    - type: xlrelease.PlaceholderTile
+      row: 0
+      col: 0
+      content: Development
+    - name: Current applications
+      type: deployment.CurrentApplicationsTile
+      width: 1
+      height: 1
+      row: 1
+      col: 0
+      filters:
+      - type: xlrelease.EnvironmentStageFilter
+        stage: Development
+      - type: xlrelease.DateFilter
+        timeFrame: LAST_YEAR
+    - name: Activity
+      type: deployment.DeploymentsActivityTile
+      width: 1
+      row: 2
+      col: 0
+      filters:
+      - type: xlrelease.EnvironmentStageFilter
+        stage: Development
+      - type: xlrelease.DateFilter
+        timeFrame: LAST_YEAR
+    - name: Total deployments
+      type: deployment.TotalDeploymentsTile
+      width: 1
+      height: 1
+      row: 4
+      col: 0
+      filters:
+      - type: xlrelease.EnvironmentStageFilter
+        stage: Development
+      - type: xlrelease.DateFilter
+        timeFrame: LAST_YEAR
+    - name: Deployments
+      type: deployment.DeploymentsDistributionTile
+      width: 1
+      row: 5
+      col: 0
+      filters:
+      - type: xlrelease.EnvironmentStageFilter
+        stage: Development
+      - type: xlrelease.DateFilter
+        timeFrame: LAST_YEAR
+      height: 1
+    - name: Deployment success rate
+      type: deployment.DeploymentsSuccessRateTile
+      width: 1
+      height: 1
+      row: 6
+      col: 0
+      filters:
+      - type: xlrelease.EnvironmentStageFilter
+        stage: Development
+      - type: xlrelease.DateFilter
+        timeFrame: LAST_YEAR
+    - type: xlrelease.PlaceholderTile
+      row: 0
+      col: 1
+      content: Test
+    - name: Current applications
+      type: deployment.CurrentApplicationsTile
+      width: 1
+      height: 1
+      row: 1
+      col: 1
+      filters:
+      - type: xlrelease.EnvironmentStageFilter
+        stage: Test
+      - type: xlrelease.DateFilter
+        timeFrame: LAST_YEAR
+    - name: Activity
+      type: deployment.DeploymentsActivityTile
+      width: 1
+      row: 2
+      col: 1
+      filters:
+      - type: xlrelease.EnvironmentStageFilter
+        stage: Test
+      - type: xlrelease.DateFilter
+        timeFrame: LAST_YEAR
+    - name: Total deployments
+      type: deployment.TotalDeploymentsTile
+      width: 1
+      height: 1
+      row: 4
+      col: 1
+      filters:
+      - type: xlrelease.EnvironmentStageFilter
+        stage: Test
+      - type: xlrelease.DateFilter
+        timeFrame: LAST_YEAR
+    - name: Deployments
+      type: deployment.DeploymentsDistributionTile
+      width: 1
+      row: 5
+      col: 1
+      filters:
+      - type: xlrelease.EnvironmentStageFilter
+        stage: Test
+      - type: xlrelease.DateFilter
+        timeFrame: LAST_YEAR
+      height: 1
+    - name: Deployment success rate
+      type: deployment.DeploymentsSuccessRateTile
+      width: 1
+      height: 1
+      row: 6
+      col: 1
+      filters:
+      - type: xlrelease.EnvironmentStageFilter
+        stage: Test
+      - type: xlrelease.DateFilter
+        timeFrame: LAST_YEAR
+    - type: xlrelease.PlaceholderTile
+      row: 0
+      col: 2
+      content: Acceptance
+    - name: Current applications
+      type: deployment.CurrentApplicationsTile
+      width: 1
+      height: 1
+      row: 1
+      col: 2
+      filters:
+      - type: xlrelease.EnvironmentStageFilter
+        stage: Acceptance
+      - type: xlrelease.DateFilter
+        timeFrame: LAST_YEAR
+    - name: Activity
+      type: deployment.DeploymentsActivityTile
+      width: 1
+      row: 2
+      col: 2
+      filters:
+      - type: xlrelease.EnvironmentStageFilter
+        stage: Acceptance
+      - type: xlrelease.DateFilter
+        timeFrame: LAST_YEAR
+    - name: Total deployments
+      type: deployment.TotalDeploymentsTile
+      width: 1
+      height: 1
+      row: 4
+      col: 2
+      filters:
+      - type: xlrelease.EnvironmentStageFilter
+        stage: Acceptance
+      - type: xlrelease.DateFilter
+        timeFrame: LAST_YEAR
+    - name: Deployments
+      type: deployment.DeploymentsDistributionTile
+      width: 1
+      row: 5
+      col: 2
+      filters:
+      - type: xlrelease.EnvironmentStageFilter
+        stage: Acceptance
+      - type: xlrelease.DateFilter
+        timeFrame: LAST_YEAR
+      height: 1
+    - name: Deployment success rate
+      type: deployment.DeploymentsSuccessRateTile
+      width: 1
+      height: 1
+      row: 6
+      col: 2
+      filters:
+      - type: xlrelease.EnvironmentStageFilter
+        stage: Acceptance
+      - type: xlrelease.DateFilter
+        timeFrame: LAST_YEAR
+    - type: xlrelease.PlaceholderTile
+      row: 0
+      col: 3
+      content: Production
+    - name: Current applications
+      type: deployment.CurrentApplicationsTile
+      width: 1
+      height: 1
+      row: 1
+      col: 3
+      filters:
+      - type: xlrelease.EnvironmentStageFilter
+        stage: Production
+      - type: xlrelease.DateFilter
+        timeFrame: LAST_YEAR
+    - name: Activity
+      type: deployment.DeploymentsActivityTile
+      width: 1
+      row: 2
+      col: 3
+      filters:
+      - type: xlrelease.EnvironmentStageFilter
+        stage: Production
+      - type: xlrelease.DateFilter
+        timeFrame: LAST_YEAR
+    - name: Total deployments
+      type: deployment.TotalDeploymentsTile
+      width: 1
+      height: 1
+      row: 4
+      col: 3
+      filters:
+      - type: xlrelease.EnvironmentStageFilter
+        stage: Production
+      - type: xlrelease.DateFilter
+        timeFrame: LAST_YEAR
+    - name: Deployments
+      type: deployment.DeploymentsDistributionTile
+      width: 1
+      row: 5
+      col: 3
+      filters:
+      - type: xlrelease.EnvironmentStageFilter
+        stage: Production
+      - type: xlrelease.DateFilter
+        timeFrame: LAST_YEAR
+      height: 1
+    - name: Deployment success rate
+      type: deployment.DeploymentsSuccessRateTile
+      width: 1
+      height: 1
+      row: 6
+      col: 3
+      filters:
+      - type: xlrelease.EnvironmentStageFilter
+        stage: Production
+      - type: xlrelease.DateFilter
+        timeFrame: LAST_YEAR
+    columns: 4
+    filters:
+    - type: xlrelease.DateFilter
+      timeFrame: LAST_YEAR
+  - name: Code Quality
+    type: xlrelease.BlankDashboard
+    description: Example dashboard for a developer perspective on release activities
+    owner: admin
+    tiles:
+    - name: This sprint - JIRA
+      type: jira.JiraQueryTile
+      width: 2
+      row: 0
+      col: 0
+      jiraServer: Ecommerce
+      query: PROJECT = ROOTDEMO and type = Story
+    - name: Active tickets - JIRA
+      type: jira.JiraQueryTile
+      width: 2
+      row: 0
+      col: 2
+      jiraServer: Ecommerce
+      query: project = ROOTDEMO AND issuetype = Story AND status = OPEN
+    - name: SonarQube analysis summary
+      type: sonar.SonarSummaryTile
+      row: 1
+      col: 0
+      width: 1
+      resource: root-demo
+      metrics:
+        minor_violations: Minor Issues
+        cognitive_complexity: Cognitive Complexity
+        complexity: Cyclomatic Complexity
+        code_smells: Code Smells
+        major_violations: Major Issues
+        info_violations: Info Issues
+      sonarServer: Ecommerce
+    - name: SonarQube metrics trend per version
+      type: sonar.SonarComplianceTile
+      row: 1
+      col: 1
+      width: 3
+      metricUnit: INT
+      resource: root-demo
+      versionFilterRegex: '[^\n]+'
+      metrics:
+        minor_violations: Minor Issues
+        cognitive_complexity: Cognitive Complexity
+        complexity: Cyclomatic Complexity
+        code_smells: Code Smells
+        major_violations: Major Issues
+        info_violations: Info Issues
+      sonarServer: Ecommerce
+    - name: SonarQube code base
+      type: sonar.SonarSummaryTile
+      row: 0
+      col: 4
+      width: 1
+      height: 3
+      resource: root-demo
+      metrics:
+        duplicated_lines: Duplicated Lines
+        statements: Statements
+        generated_lines: Generated Lines
+        ncloc_language_distribution: Lines of Code Per Language
+        lines: Lines
+        classes: Classes
+        duplicated_lines_density: Duplicated Lines (%)
+        ncloc: Lines of Code
+        comment_lines: Comment Lines
+        generated_ncloc: Generated Lines of Code
+        uncovered_lines: Uncovered Lines
+      sonarServer: Ecommerce
+    columns: 5
+  - type: xlrelease.Dashboard
+    owner: admin
+    tiles:
+    - name: Release progress
+      type: xlrelease.ReleaseProgressTile
+    - name: Release health
+      type: xlrelease.ReleaseHealthTile
+    - name: Release summary
+      type: xlrelease.ReleaseSummaryTile
+    - name: Resource usage
+      type: xlrelease.ResourceUsageTile
+      width: 1
+    - name: JIRA issues
+      type: jira.JiraQueryTile
+      row: 1
+      col: 0
+      jiraServer: Ecommerce
+      query: PROJECT = ROOTDEMO and type = Task
+    - name: Task Progress
+      type: xlrelease.TaskProgressTile
+      row: 1
+      col: 1
+      tags:
+      - approval
+    - name: Deployment activity
+      type: deployment.DeploymentsActivityTile
+      width: 1
+      row: 1
+      col: 2
+    - name: Deployments distribution
+      type: deployment.DeploymentsDistributionTile
+      row: 2
+      col: 1
+    - name: SonarQube analysis summary
+      type: sonar.SonarSummaryTile
+      row: 4
+      col: 0
+      resource: root-demo
+      metrics:
+        cognitive_complexity: Cognitive Complexity
+        open_issues: Open Issues
+      sonarServer: Ecommerce
+    parentTemplate: EcommerceAppReleaseProcess-atlassianStack

@@ -1,0 +1,12 @@
+apiVersion: xl-deploy/v1
+kind: Environments
+spec:
+- name: app-dict
+  type: udm.Dictionary
+- name: dev
+  type: udm.Environment
+  members:
+  - Infrastructure/localhost
+  - Infrastructure/docker
+  dictionaries:
+  - Environments/app-dict

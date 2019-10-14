@@ -1,0 +1,140 @@
+apiVersion: xl/v2
+kind: Blueprint
+
+metadata:
+  name: insecure-bank
+  description: |
+    A sample bank for review
+  author: XebiaLabs
+  version: 2.0
+  instructions: Please read xebialabs/USAGE.md
+
+spec:
+  parameters:
+  - name: AppName
+    type: Input
+    prompt: What is the name of the application?
+
+  - name: artifactory_Server_Ecommerce_url
+    type: Input
+    prompt: "Artifactory url:"
+    default: https://artifactory.rootdemo.eficode.io
+    saveInXlvals: true
+
+  - name: artifactory_Server_Ecommerce_username
+    type: Input
+    prompt: "Artifactory username:"
+    default: xebiademo
+    saveInXlvals: true
+
+  - name: artifactory_Server_Ecommerce_password
+    type: SecretInput
+    prompt: "Artifactory password:"
+
+  - name: bamboo_Server_Ecommerce_url
+    type: Input
+    prompt: "Bamboo url:"
+    default: https://bamboo.rootdemo.eficode.io/
+    saveInXlvals: true
+
+  - name: bamboo_Server_Ecommerce_username
+    type: Input
+    prompt: "Bamboo username:"
+    default: xebiademo
+    saveInXlvals: true
+
+  - name: bamboo_Server_Ecommerce_password
+    type: SecretInput
+    prompt: "Bamboo password:"
+
+  - name: jenkins_Server_Ecommerce_url
+    type: Input
+    prompt: "Jenkins url:"
+    default: https://ci.rootdemo.eficode.io
+    saveInXlvals: true
+
+  - name: jenkins_Server_Ecommerce_username
+    type: Input
+    prompt: "Jenkins username:"
+    default: xebiademo
+    saveInXlvals: true
+
+  - name: jenkins_Server_Ecommerce_password
+    type: SecretInput
+    prompt: "Jenkins password:"
+
+  - name: jira_Server_Ecommerce_url
+    type: Input
+    prompt: "JIRA url:"
+    default: https://jira.rootdemo.eficode.io
+    saveInXlvals: true
+
+  - name: jira_Server_Ecommerce_username
+    type: Input
+    prompt: "JIRA username:"
+    default: xebiademo
+    saveInXlvals: true
+
+  - name: jira_Server_Ecommerce_password
+    type: SecretInput
+    prompt: "JIRA password:"
+
+  - name: sonar_Server_Ecommerce_url
+    type: Input
+    prompt: "Sonar url:"
+    default: https://sonar.rootdemo.eficode.io
+    saveInXlvals: true
+
+  - name: sonar_Server_Ecommerce_username
+    type: Input
+    prompt: "Sonar username:"
+    default: xebiademo
+    saveInXlvals: true
+
+  - name: sonar_Server_Ecommerce_password
+    type: SecretInput
+    prompt: "Sonar password:"
+
+  - name: stash_Server_Ecommerce_url
+    type: Input
+    prompt: "Stash url:"
+    default: https://scm.rootdemo.eficode.io/
+    saveInXlvals: true
+
+  - name: stash_Server_Ecommerce_username
+    type: Input
+    prompt: "Stash username:"
+    default: xebiademo
+    saveInXlvals: true
+
+  - name: stash_Server_Ecommerce_password
+    type: SecretInput
+    prompt: "Stash password:"
+
+  - name: xldeploy_XLDeployServer_Ecommerce_url
+    type: Input
+    prompt: "XL Deploy url:"
+    default: https://xldeploy.rootdemo.eficode.io/
+    saveInXlvals: true
+
+  - name: xldeploy_XLDeployServer_Ecommerce_username
+    type: Input
+    prompt: "XL Deploy username:"
+    default: admin
+    saveInXlvals: true
+
+  - name: xldeploy_XLDeployServer_Ecommerce_password
+    type: SecretInput
+    prompt: "XL Deploy password:"
+
+  - name: xlrelease_Release_EcommerceAppReleaseProcess_scriptUserPassword
+    type: SecretInput
+    prompt: "Script username:"
+
+  files:
+  - path: xebialabs.yaml
+  - path: xebialabs/xld-insecure-bank-applications.yaml
+  - path: xebialabs/xld-insecure-bank-environments.yaml
+  - path: xebialabs/xld-insecure-bank-infrastructure.yaml
+  - path: xebialabs/xlr-insecure-bank-pipeline-ci-cd.yaml
+  - path: xebialabs/xlr-insecure-bank-pipeline-destroy.yaml.tmpl
